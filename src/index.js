@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import {Route, BrowserRouter,Routes} from 'react-router-dom';
+import Login from './components/Login';
+import { CookiesProvider } from 'react-cookie';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <CookiesProvider>
+        <Routes>
+          <Route exact path='/csv_react' element={<Login />} />
+          <Route exact path='/csv_react/upload' element={<App />} />
+        </Routes>
+      </CookiesProvider>
+    </BrowserRouter> 
   </React.StrictMode>
 );
 
