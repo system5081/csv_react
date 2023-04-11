@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 //https://mui.com/material-ui/customization/color/
 import { createTheme } from '@mui/material/styles';
@@ -7,6 +6,7 @@ import {red} from '@mui/material/colors';
 //https://mui.com/material-ui/customization/theming/#theme-provider
 //ただしimportに関する記述なし
 import { ThemeProvider } from '@mui/material/styles';
+import NavBar from './components/NavBar';
 
 const theme=createTheme({
   palette :{
@@ -22,8 +22,7 @@ const theme=createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1>人類社会のすべての構成員の固有の尊厳と平等で譲ることのできない権利とを承認することは</h1>
+            <NavBar />
     </ThemeProvider>
   );
 }
