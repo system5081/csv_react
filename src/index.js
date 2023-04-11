@@ -15,8 +15,8 @@ root.render(
     <BrowserRouter>
       <CookiesProvider>
         <Routes>
-          <Route exact path='/csv_react' element={<Login />} />
-          <Route exact path='/csv_react/upload' element={<App />} />
+          <Route exact path='/' element={<Login />} />
+          <Route exact path='/upload' element={<App />} />
         </Routes>
       </CookiesProvider>
     </BrowserRouter> 

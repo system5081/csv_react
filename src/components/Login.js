@@ -137,7 +137,7 @@ const Login = (props) => {
           try {
             dispatch({ type: START_FETCH });
             const res = await axios.post(
-              `http://system5081.com/csv_api/authen/jwt/create/`,
+              `http://csvapi.system5081.com/authen/jwt/create/`,
               state.credentialsLog,     //認証の情報はcredentialsLogに入っている
               {
                 headers: { "Content-Type": "application/json" },
@@ -145,8 +145,8 @@ const Login = (props) => {
             );
             props.cookies.set("jwt-token", res.data.access);
             res.data.access         //このresにjwtのトークンが返ってくる
-              ? (window.location.href = "/csv_react/upload")
-              : (window.location.href = "/csv_react");
+              ? (window.location.href = "/upload")
+              : (window.location.href = "/");
             dispatch({ type: FETCH_SUCCESS });
           } catch {
             dispatch({ type: ERROR_CATCHED });
@@ -155,7 +155,7 @@ const Login = (props) => {
           try {
             dispatch({ type: START_FETCH });
             await axios.post(
-              `http://system5081.com/csv_api/api/create/`,
+              `http://csvapi.system5081.com/api/create/`,
               state.credentialsLog,
               {
                 headers: { "Content-Type": "application/json" },
@@ -163,7 +163,7 @@ const Login = (props) => {
             );
     
             const res = await axios.post(
-              `http://system5081.com/csv_api/authen/jwt/create/`,
+              `http://csvapi.system5081.com/authen/jwt/create/`,
               state.credentialsLog,
               {
                 headers: { "Content-Type": "application/json" },
@@ -171,8 +171,8 @@ const Login = (props) => {
             );
             props.cookies.set("jwt-token", res.data.access);
             res.data.access
-              ? (window.location.href = "/csv_react/upload")
-              : (window.location.href = "/csv_react");
+              ? (window.location.href = "/upload")
+              : (window.location.href = "/");
             dispatch({ type: FETCH_SUCCESS });
           } catch {
             dispatch({ type: ERROR_CATCHED });

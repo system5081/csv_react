@@ -22,7 +22,7 @@ const NavBar = (props) => {
 
     const Logout =()=>{
         props.cookies.remove('jwt-token');
-        window.location.href='/csv_react/';
+        window.location.href='/';
     };
 
   return (
