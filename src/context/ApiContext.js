@@ -60,11 +60,11 @@ const ApiContextProvider = (props) => {
             console.log("error");
         }
     };
-//videoの削除
+//csvの削除
     const deleteCsv = async () => {
         try {
             await axios.delete(
-                `http://cscapi.system5081.com/api/csvs/${selectedCsv.id}/`,
+                `http://csvapi.system5081.com/api/csvs/${selectedCsv.id}/`,
                 {
                     headers: {
                     "Content-Type": "application/json",
