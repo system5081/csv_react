@@ -9,7 +9,7 @@ const ApiContextProvider = (props) => {
     const token = props.cookies.get("jwt-token");
     const [csvs, setCsvs] = useState([]);
     //新規
-    // const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("");
     const [csv, setCsv] = useState(null);
     // const [thum, setThum] = useState(null);
     //選択された内容
@@ -26,7 +26,7 @@ const ApiContextProvider = (props) => {
                 Authorization: `JWT ${token}`,
               },
             });
-            setVideos(res.data);
+            setCsvs(res.data);
           } catch {
             console.log("error");
           }
@@ -38,23 +38,24 @@ const ApiContextProvider = (props) => {
     const newCsv = async () => {
         const uploadData = new FormData();
         // uploadData.append("title", title);
+        uploadData.append("title", title);
         uploadData.append("csv", csv, csv.name);
         // uploadData.append("thum", thum, thum.name);
         try {
             const res = await axios.post(
-                "https://csvapi.system5081.com/api/videos/",
+                "https://csvapi.system5081.com/api/csvs/",
                 uploadData,
                 {
                     headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `JWT ${token}`,
+                      "Content-Type": "multipart/form-data",
+                      Authorization: `JWT ${token}`,
                     },
                 }
             );
             setCsvs([...csvs, res.data]);
             setModalIsOpen(false);
-            // setTitle("");
-            setVideo(null);
+            setTitle("");
+            setCsv(null);
             // setThum(null);
         } catch {
             console.log("error");
@@ -73,7 +74,7 @@ const ApiContextProvider = (props) => {
                 }
             );
             setSelectedCsv(null);
-            setCsvs(videos.filter((item) => item.id !== selectedCsv.id));
+            setCsvs(csvs.filter((item) => item.id !== selectedCsv.id));
         } catch {
             console.log("error");
         }
@@ -82,6 +83,8 @@ const ApiContextProvider = (props) => {
     <ApiContext.Provider
       value={{
         csvs,
+        title,
+        setTitle,
         csv,
         setCsv,
         selectedCsv,
@@ -89,7 +92,7 @@ const ApiContextProvider = (props) => {
         modalIsOpen,
         setModalIsOpen,
         newCsv,
-        deleteVideo,
+        deleteCsv,
       }}
     >
       {props.children}

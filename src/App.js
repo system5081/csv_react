@@ -7,6 +7,8 @@ import {red} from '@mui/material/colors';
 //ただしimportに関する記述なし
 import { ThemeProvider } from '@mui/material/styles';
 import NavBar from './components/NavBar';
+import Main from './components/Main';
+import ApiContextProvider from './context/ApiContext';
 
 const theme=createTheme({
   palette :{
@@ -21,9 +23,12 @@ const theme=createTheme({
 
 function App() {
   return (
+    <ApiContextProvider>
     <ThemeProvider theme={theme}>
             <NavBar />
+            <Main />
     </ThemeProvider>
+    </ApiContextProvider>
   );
 }
 
