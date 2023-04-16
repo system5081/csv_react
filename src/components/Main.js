@@ -121,7 +121,7 @@ const Main = () => {
           />
 
           <IconButton onClick={handleEditMovie}>
-            <VideoFileIcon className="photo" />
+            <PostAddIcon className="photo" />
           </IconButton>
 
           <br />
