@@ -86,36 +86,36 @@ const loginReducer =(state,action)=>{
             return state;
         }
     };
-}
+};
 const PaperBox = styled(Box)(({ theme }) => ({
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  }));
+  marginTop: theme.spacing(8),
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+}));
 
-  const AvatarAvatar = styled(Avatar)(({ theme }) => ({
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  }));
+const AvatarAvatar = styled(Avatar)(({ theme }) => ({
+  margin: theme.spacing(1),
+  backgroundColor: theme.palette.secondary.main,
+}));
 
-  const SpanTypography = styled(Typography)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    color: 'teal',
-    marginTop: theme.spacing(1),
-  }));
+const SpanTypography = styled(Typography)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  color: 'teal',
+  marginTop: theme.spacing(1),
+}));
 
-  const SubmitButton = styled(Button)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    color: 'teal',
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    width: '100%',
-  }));
+const SubmitButton = styled(Button)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  color: 'teal',
+  marginTop: theme.spacing(1),
+  marginBottom: theme.spacing(1),
+  width: '100%',
+}));
 
 const Login = (props) => {
     // const classes=useStyles();
@@ -137,7 +137,7 @@ const Login = (props) => {
           try {
             dispatch({ type: START_FETCH });
             const res = await axios.post(
-              `http://csvapi.system5081.com/authen/jwt/create/`,
+              `https://csvapi.system5081.com/authen/jwt/create/`,
               state.credentialsLog,     //認証の情報はcredentialsLogに入っている
               {
                 headers: { "Content-Type": "application/json" },
@@ -155,7 +155,7 @@ const Login = (props) => {
           try {
             dispatch({ type: START_FETCH });
             await axios.post(
-              `http://csvapi.system5081.com/api/create/`,
+              `https://csvapi.system5081.com/api/create/`,
               state.credentialsLog,
               {
                 headers: { "Content-Type": "application/json" },
@@ -163,7 +163,7 @@ const Login = (props) => {
             );
     
             const res = await axios.post(
-              `http://csvapi.system5081.com/authen/jwt/create/`,
+              `https://csvapi.system5081.com/authen/jwt/create/`,
               state.credentialsLog,
               {
                 headers: { "Content-Type": "application/json" },

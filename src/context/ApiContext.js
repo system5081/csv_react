@@ -21,7 +21,7 @@ const ApiContextProvider = (props) => {
     useEffect(() => {
         const getCsv = async () => {
           try {
-            const res = await axios.get("http://csvapi.system5081.com/api/csvs/", {
+            const res = await axios.get("https://csvapi.system5081.com/api/csvs/", {
               headers: {
                 Authorization: `JWT ${token}`,
               },
@@ -42,7 +42,7 @@ const ApiContextProvider = (props) => {
         // uploadData.append("thum", thum, thum.name);
         try {
             const res = await axios.post(
-                "http://csvapi.system5081.com/api/videos/",
+                "https://csvapi.system5081.com/api/videos/",
                 uploadData,
                 {
                     headers: {
@@ -64,7 +64,7 @@ const ApiContextProvider = (props) => {
     const deleteCsv = async () => {
         try {
             await axios.delete(
-                `http://csvapi.system5081.com/api/csvs/${selectedCsv.id}/`,
+                `https://csvapi.system5081.com/api/csvs/${selectedCsv.id}/`,
                 {
                     headers: {
                     "Content-Type": "application/json",
