@@ -30,7 +30,7 @@ const NavBar = (props) => {
     <Toolbar>
       <button className='logo'>
       </button>
-      <TitleTypography variant='h5' >TEST</TitleTypography>
+      <TitleTypography variant='h5' >CSV_JIME</TitleTypography>
       <button className='logout' onClick={()=>Logout()}>
         <LogoutIcon />
       </button>
